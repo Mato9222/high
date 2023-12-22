@@ -101,6 +101,7 @@ public class PhoneBookTest {
 		}
 		System.out.println("새로운 전화번호 >> ");
 		String newTel = sc.next();
+		sc.nextLine();	//입력 버퍼 비우기
 		
 		System.out.println("새로운 주소 >> ");
 		String newAddr = sc.next();
@@ -156,7 +157,7 @@ public class PhoneBookTest {
 		
 		System.out.println("번호 : ");
 		String phone = sc.next();
-		sc.nextLine();
+		sc.nextLine();	// 입력 버퍼 비우기
 		
 		System.out.println("주소 : ");
 		String addr = sc.nextLine();
@@ -167,6 +168,15 @@ public class PhoneBookTest {
 	}
 }
 
+/*
+    Scanner의 메서드들의 특징 
+   - next(), nextInt(), nextDouble() ...
+    	==> 띄어쓰기, Tab, Enter키를 구분문자로 분리해서 분리된 자료만 읽어간다.
+   - nextLine()
+   		==> 한 줄 단위로 읽어간다.
+   			즉, 자료를 입력하고 Enter키를 누르면 Enter키까지 읽어가서 
+   				Enter키를 뺀 나머지 데이터를 반환한다.
+ */
 
 class Phone {
 	private String name;
