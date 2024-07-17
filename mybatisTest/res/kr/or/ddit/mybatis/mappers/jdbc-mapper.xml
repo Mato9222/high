@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+			"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+			
+<mapper namespace="jdbc">
+
+<!-- 	<insert id="insertLp" parameterType="LprodVO">
+		insert into lprod (lprod_id, lprod_gu ,lprod_nm)
+		values ((select max(lprod_id)+1 from lprod), #{lprod_gu}, #{lprod_nm})
+	</insert>
+	
+	
+	<select id="selectLp" parameterType="String" resultType="lprodVO">
+		select * from lprod where lprod_gu= #{lprod_gu}
+	</select>
+	 -->
+	
+	
+	<select id="getNextId" resultType="lprodVO">
+		select nvl(max(lprod_id),0)+1 from lprod
+	</select>
+
+	<select id="getLprodCount" parameterType="String" resultType="int">
+		select count(*) cnt from lprod
+		where lprod_gu = #{lprod_gu}
+	</select>
+	
+	<insert id="insertLprod" parameterType="lprodVO">
+		insert into lprod(lprod_id, lprod_gu, lprod_nm)
+		values (#{lprod_id}, #{lprod_gu}, #{lprod_nm})
+	</insert>
+
+</mapper>
